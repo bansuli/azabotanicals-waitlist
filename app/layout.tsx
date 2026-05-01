@@ -15,9 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: " ",
   description: "AZA Botanicals — join the waitlist",
-  icons: {
-    icon: '/aza-logo.png',
-  },
 };
 
 export default function RootLayout({
