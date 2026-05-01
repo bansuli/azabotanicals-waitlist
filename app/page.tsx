@@ -11,7 +11,7 @@ export default function Home() {
       <img src="/aza-logo.png" alt="AZA Botanicals" style={{ width: 280, position: 'absolute', zIndex: 1 }} />
       {/* Button — below logo */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/waitlist-button.png" alt="Join Waitlist" style={{ width: 600, cursor: 'pointer', position: 'absolute', top: 'calc(50% - 30px)', left: 'calc(50% + 40px)', transform: 'translateX(-50%)', zIndex: 1 }} />
+      <img src="/waitlist-button.png" alt="Join Waitlist" style={{ width: 600, cursor: 'pointer', position: 'absolute', top: 'calc(50% - 100px)', left: 'calc(50% + 40px)', transform: 'translateX(-50%)', zIndex: 1 }} />
     </div>
   )
 }
