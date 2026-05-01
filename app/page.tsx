@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center" style={{ position: 'relative', background: '#FDFBF8' }}>
+    <div className="w-screen flex items-center justify-center" style={{ minHeight: '100dvh', position: 'relative', background: '#FDFBF8' }}>
       {/* GIF background */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/eyes.gif" alt="" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} />
