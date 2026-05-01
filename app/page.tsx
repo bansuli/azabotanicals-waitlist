@@ -44,7 +44,7 @@ export default function Home() {
         </>
       ) : submitted ? (
         <p style={{ position: 'relative', zIndex: 1, fontFamily: 'Georgia, serif', fontSize: 18, color: '#3a3a3a', letterSpacing: '0.05em' }}>
-          you&apos;re on the list.
+          you&apos;re on the waitlist. we&apos;ll be in touch.
         </p>
       ) : (
         <form onSubmit={handleSubmit} style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 80 }}>
