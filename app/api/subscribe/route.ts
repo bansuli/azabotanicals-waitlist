@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-const OWNER_EMAIL = process.env.OWNER_EMAIL || 'bansuleimann@gmail.com'
 const GMAIL_USER  = process.env.GMAIL_USER
 const GMAIL_PASS  = process.env.GMAIL_APP_PASSWORD
 
@@ -29,19 +28,6 @@ export async function POST(req: NextRequest) {
 
   try {
     const mail = createTransport()
-
-    // Notify owner
-    await mail.sendMail({
-      from: `aża botanicals <${GMAIL_USER}>`,
-      to: OWNER_EMAIL,
-      subject: `New waitlist signup — ${email}`,
-      html: `
-        <div style="font-family:monospace;padding:32px;color:#1a1a17;background:#F2EDE4;max-width:480px">
-          <p style="font-size:10px;letter-spacing:0.15em;opacity:0.45;margin-bottom:20px">AŻA BOTANICALS · WAITLIST</p>
-          <p style="font-size:15px;font-weight:700;margin-bottom:8px">New signup</p>
-          <p style="font-size:14px">${email}</p>
-        </div>`,
-    })
 
     // Confirmation to subscriber
     await mail.sendMail({
