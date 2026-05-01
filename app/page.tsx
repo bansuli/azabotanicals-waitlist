@@ -13,9 +13,16 @@ export default function Home() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
-    const body = new FormData()
-    body.append(ENTRY_ID, email)
-    await fetch(FORM_ACTION, { method: 'POST', body, mode: 'no-cors' })
+    // Also log to Google Sheets
+    const formData = new FormData()
+    formData.append(ENTRY_ID, email)
+    fetch(FORM_ACTION, { method: 'POST', body: formData, mode: 'no-cors' })
+    // Send confirmation email
+    await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    })
     setSubmitted(true)
   }
 
