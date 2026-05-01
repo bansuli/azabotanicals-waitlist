@@ -26,7 +26,7 @@ export default function Home() {
       <img src="/eyes.gif" alt="" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} />
 
       {!showForm ? (
-        <div className="home-content" style={{ position: 'absolute', inset: 0 }}>
+        <div className="home-content">
           {/* Logo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/aza-logo.png" alt="AZA Botanicals" className="logo-img" />
