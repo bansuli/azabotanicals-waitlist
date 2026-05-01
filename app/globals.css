@@ -60,7 +60,10 @@ body {
 /* Mobile */
 @media (max-width: 768px) {
   .gif-bg {
-    transform: scale(1.4);
+    top: -10% !important;
+    left: -5% !important;
+    width: 110% !important;
+    height: 120% !important;
   }
   .home-content {
     position: relative;
