@@ -59,6 +59,9 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
+  .gif-bg {
+    transform: scale(1.15);
+  }
   .home-content {
     position: relative;
     inset: auto;
