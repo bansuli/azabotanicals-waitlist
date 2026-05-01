@@ -2,8 +2,8 @@
 import { useState } from 'react'
 
 // ← paste your Google Form values here
-const FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse'
-const ENTRY_ID = 'entry.YOUR_ENTRY_ID'
+const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfSj4kQL-QCokF0hJfdXmrB0_xVOi6icGmr4oeA-M_WbIR0Rg/formResponse'
+const ENTRY_ID = 'entry.696096006'
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false)
