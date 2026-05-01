@@ -15,7 +15,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "aża botanicals",
   description: "AZA Botanicals — join the waitlist",
-};
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    viewportFit: 'cover',
+  },
+} as Metadata;
 
 export default function RootLayout({
   children,
