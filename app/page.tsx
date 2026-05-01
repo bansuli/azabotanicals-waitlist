@@ -26,18 +26,22 @@ export default function Home() {
       <img src="/eyes.gif" alt="" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} />
 
       {!showForm ? (
-        <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+        <>
+          {/* Logo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/aza-logo.png" alt="AZA Botanicals" style={{ width: 'min(280px, 60vw)' }} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/waitlist-button.png"
-            alt="Join Waitlist"
-            className="btn-pulse"
-            onClick={() => setShowForm(true)}
-            style={{ width: 'min(500px, 80vw)', cursor: 'pointer', display: 'block' }}
-          />
-        </div>
+          <img src="/aza-logo.png" alt="AZA Botanicals" style={{ width: 280, position: 'absolute', zIndex: 1 }} />
+          {/* Button */}
+          <div style={{ position: 'absolute', top: 'calc(50% - 100px)', left: 'calc(50% + 40px)', transform: 'translateX(-50%)', zIndex: 1 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/waitlist-button.png"
+              alt="Join Waitlist"
+              className="btn-pulse"
+              onClick={() => setShowForm(true)}
+              style={{ width: 600, cursor: 'pointer', display: 'block' }}
+            />
+          </div>
+        </>
       ) : submitted ? (
         <p style={{ position: 'absolute', zIndex: 1, top: 'calc(50% + 30px)', fontFamily: '"Courier New", Courier, monospace', fontSize: 18, color: '#3a3a3a', letterSpacing: '0.05em', textAlign: 'center' }}>
           you&apos;re on the waitlist. we&apos;ll be in touch.
