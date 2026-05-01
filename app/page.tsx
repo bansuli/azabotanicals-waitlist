@@ -43,7 +43,7 @@ export default function Home() {
           </div>
         </>
       ) : submitted ? (
-        <p style={{ position: 'absolute', zIndex: 1, top: 'calc(50% + 80px)', fontFamily: '"Courier New", Courier, monospace', fontSize: 18, color: '#3a3a3a', letterSpacing: '0.05em', textAlign: 'center' }}>
+        <p style={{ position: 'absolute', zIndex: 1, top: 'calc(50% + 55px)', fontFamily: '"Courier New", Courier, monospace', fontSize: 18, color: '#3a3a3a', letterSpacing: '0.05em', textAlign: 'center' }}>
           you&apos;re on the waitlist. we&apos;ll be in touch.
         </p>
       ) : (
