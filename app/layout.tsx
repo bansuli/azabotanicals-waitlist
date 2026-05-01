@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: " ",
+  title: "aża botanicals",
   description: "AZA Botanicals — join the waitlist",
 };
 
