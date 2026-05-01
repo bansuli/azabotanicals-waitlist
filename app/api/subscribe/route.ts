@@ -1,17 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 
-const GMAIL_USER  = process.env.GMAIL_USER
-const GMAIL_PASS  = process.env.GMAIL_APP_PASSWORD
-
-function createTransport() {
-  return nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: { user: GMAIL_USER, pass: GMAIL_PASS },
-  })
-}
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   let email: string
@@ -27,11 +17,8 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const mail = createTransport()
-
-    // Confirmation to subscriber
-    await mail.sendMail({
-      from: `aża botanicals <${GMAIL_USER}>`,
+    await resend.emails.send({
+      from: 'aża botanicals <onboarding@resend.dev>',
       to: email,
       subject: "you're on the waitlist.",
       html: `
@@ -40,7 +27,7 @@ export async function POST(req: NextRequest) {
           <div style="font-size:9px;letter-spacing:0.25em;opacity:0.4;padding-bottom:20px;margin-bottom:28px;border-bottom:1px solid rgba(26,26,23,0.12)">
             BOTANICALS
           </div>
-          <div style="font-size:17px;font-weight:700;letter-spacing:0.12em;text-transform:lowercase;margin-bottom:20px">
+          <div style="font-size:17px;font-weight:700;letter-spacing:0.12em;margin-bottom:20px">
             you're on the waitlist.
           </div>
           <p style="font-size:11px;letter-spacing:0.05em;line-height:1.95;opacity:0.62;margin-bottom:32px">
