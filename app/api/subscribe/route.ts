@@ -23,8 +23,9 @@ export async function POST(req: NextRequest) {
       subject: "you're on the waitlist.",
       html: `
         <div style="font-family:monospace;background:#ffffff;padding:48px 40px;max-width:480px;color:#1a1a17">
-          <div style="margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid rgba(26,26,23,0.12)">
-            <img src="https://azabotanicals.com/aza-logo.png" alt="aża botanicals" style="width:120px;display:block;" />
+          <div style="padding-bottom:20px;margin-bottom:28px;border-bottom:1px solid rgba(26,26,23,0.12)">
+            <div style="font-size:22px;font-weight:700;letter-spacing:0.08em;margin-bottom:6px">aża</div>
+            <div style="font-size:9px;letter-spacing:0.25em;opacity:0.4">BOTANICALS</div>
           </div>
           <div style="font-size:17px;font-weight:700;letter-spacing:0.12em;margin-bottom:20px">
             you're on the waitlist.
