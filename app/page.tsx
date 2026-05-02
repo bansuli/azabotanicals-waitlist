@@ -10,6 +10,27 @@ export default function Home() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
+  const commonFakeDomains = ['test.com', 'example.com', 'fake.com', 'asdf.com', 'qwerty.com', 'abc.com', 'foo.com', 'bar.com']
+  const validTLDs = ['com', 'net', 'org', 'edu', 'gov', 'io', 'co', 'uk', 'ca', 'au', 'de', 'fr', 'me', 'app', 'dev', 'ai', 'info', 'biz', 'us', 'ng', 'za', 'gh']
+
+  function isValidEmail(val: string) {
+    if (!val) return false
+    const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+    if (!emailRegex.test(val)) return false
+    const parts = val.split('@')
+    if (parts.length !== 2) return false
+    const domain = parts[1].toLowerCase()
+    if (commonFakeDomains.includes(domain)) return false
+    const tld = domain.split('.').pop() || ''
+    if (!validTLDs.includes(tld)) return false
+    // domain part before TLD should be at least 2 chars
+    const domainParts = domain.split('.')
+    if (domainParts[0].length < 2) return false
+    return true
+  }
+
+  const emailValid = isValidEmail(email)
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
@@ -55,26 +76,35 @@ export default function Home() {
         </p>
       ) : (
         <form onSubmit={handleSubmit} style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 80 }}>
-          <input
-            type="email"
-            placeholder="your@email.com"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            autoFocus
-            style={{
-              background: 'transparent',
-              border: 'none',
-              borderBottom: '1px solid #3a3a3a',
-              outline: 'none',
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              autoFocus
+              style={{
+                background: 'transparent',
+                border: 'none',
+                borderBottom: '1px solid #3a3a3a',
+                outline: 'none',
+                fontFamily: '"Courier New", Courier, monospace',
+                fontSize: 18,
+                color: '#3a3a3a',
+                textAlign: 'center',
+                width: 260,
+                padding: '4px 0',
+                letterSpacing: '0.05em',
+              }}
+            />
+            <span style={{
               fontFamily: '"Courier New", Courier, monospace',
               fontSize: 18,
               color: '#3a3a3a',
-              textAlign: 'center',
-              width: 260,
-              padding: '4px 0',
-              letterSpacing: '0.05em',
-            }}
-          />
+              opacity: emailValid ? 1 : 0,
+              transition: 'opacity 0.2s ease',
+            }}>✓</span>
+          </div>
         </form>
       )}
     </div>
